@@ -1,0 +1,15 @@
+services:
+  website:
+    image: nginx:alpine
+    container_name: made-between-moments-website
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8088:80"
+    volumes:
+      - ./website:/usr/share/nginx/html:ro
+    networks:
+      - made-between-moments
+
+networks:
+  made-between-moments:
+    name: made-between-moments
